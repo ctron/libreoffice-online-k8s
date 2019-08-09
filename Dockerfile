@@ -8,11 +8,11 @@ RUN ln -s /etc/tls/tls.key /etc/loolwsd/key.pem
 RUN ln -s /run/secrets/kubernetes.io/serviceaccount/service-ca.crt /etc/loolwsd/ca-chain.cert.pem
 RUN chmod a+w /etc/loolwsd/loolwsd.xml
 RUN chmod a+w /etc/loolwsd
-#RUN ln -s /etc/config/loolwsd.xml /etc/loolwsd/loolwsd.xml
 RUN setcap -r /usr/bin/loolforkit
 
 RUN chmod g=u /etc/passwd
-COPY uid_entrypoint /uid_entrypoint
-RUN chmod a+x /uid_entrypoint
-ENTRYPOINT [ "/uid_entrypoint" ]
+
+COPY start /start
+RUN chmod a+x /start
+ENTRYPOINT [ "/start" ]
 
