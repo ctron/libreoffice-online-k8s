@@ -1,4 +1,4 @@
-FROM libreoffice/online:latest
+FROM libreoffice/online:master
 
 ENV LC_CTYPE=en_US.UTF-8
 
