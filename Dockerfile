@@ -11,5 +11,5 @@ RUN setcap -r /usr/bin/loolforkit
 
 RUN chmod g=u /etc/passwd
 COPY uid_entrypoint /
-RUN chmpd a+x /uid_entrypoint
+RUN chmod a+x /uid_entrypoint
 ENTRYPOINT [ "/uid_entrypoint" ]
