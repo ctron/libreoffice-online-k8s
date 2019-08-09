@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if ! whoami &> /dev/null; then
+  if [ -w /etc/passwd ]; then
+    echo "${USER_NAME:-lool}:x:$(id -u):0:${USER_NAME:-lool} user:${HOME}:/sbin/nologin" >> /etc/passwd
+  fi
+fi
+
+exec /usr/bin/loolwsd --version --o:sys_template_path=/opt/lool/systemplate --o:lo_template_path=/opt/libreoffice --o:child_root_path=/opt/lool/child-roots --o:file_server_root_path=/usr/share/loolwsd
