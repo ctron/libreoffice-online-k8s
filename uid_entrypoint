@@ -6,6 +6,8 @@ if ! whoami &> /dev/null; then
   fi
 fi
 
+cp /etc/config/loolwsd.xml /etc/loolwsd/loolwsd.xml
+
 domain=$(hostname)
 
 perl -pi -e "s/localhost<\/host>/${domain}<\/host>/g" /etc/loolwsd/loolwsd.xml
