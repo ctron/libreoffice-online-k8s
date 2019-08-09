@@ -10,4 +10,6 @@ RUN ln -s /etc/config/loolwsd.xml /etc/loolwsd/loolwsd.xml
 RUN setcap -r /usr/bin/loolforkit
 
 RUN chmod g=u /etc/passwd
-ENTRYPOINT [ "uid_entrypoint" ]
+COPY uid_entrypoint /
+RUN chmpd a+x /uid_entrypoint
+ENTRYPOINT [ "/uid_entrypoint" ]
