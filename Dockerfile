@@ -6,6 +6,7 @@ RUN ln -s /etc/tls/tls.crt /etc/loolwsd/cert.pem
 RUN ln -s /etc/tls/tls.key /etc/loolwsd/key.pem
 RUN ln -s /run/secrets/kubernetes.io/serviceaccount/service-ca.crt /etc/loolwsd/ca-chain.cert.pem
 RUN chmod a+w /etc/loolwsd/loolwsd.xml
+RUN chmod a+w /etc/loolwsd
 #RUN ln -s /etc/config/loolwsd.xml /etc/loolwsd/loolwsd.xml
 RUN setcap -r /usr/bin/loolforkit
 
