@@ -9,7 +9,4 @@ RUN rm /etc/loolwsd/loolwsd.xml
 RUN ln -s /etc/config/loolwsd.xml /etc/loolwsd/loolwsd.xml
 RUN setcap -r /usr/bin/loolforkit
 
-RUN chmod g=u /etc/passwd
-COPY uid_entrypoint /
-RUN chmod a+x /uid_entrypoint
-ENTRYPOINT [ "/uid_entrypoint" ]
+CMD /usr/bin/loolwsd --version --o:sys_template_path=/opt/lool/systemplate --o:lo_template_path=/opt/libreoffice --o:child_root_path=/opt/lool/child-roots --o:file_server_root_path=/usr/share/loolwsd
