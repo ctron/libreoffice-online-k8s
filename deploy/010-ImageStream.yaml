@@ -1,0 +1,19 @@
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  labels:
+    app: libreoffice
+  name: libreoffice-online-k8s
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - name: latest
+    from:
+      kind: DockerImage
+      name: docker.io/ctron/libreoffice-online-k8s:latest
+    importPolicy:
+      scheduled: true
+    referencePolicy:
+      type: Source

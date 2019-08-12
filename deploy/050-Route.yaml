@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: libreoffice
+  labels:
+    app: libreoffice
+spec:
+  to:
+    kind: Service
+    name: libreoffice
+  port:
+    targetPort: 9980
+  tls:
+    termination: reencrypt
+    insecureEdgeTerminationPolicy: Redirect
