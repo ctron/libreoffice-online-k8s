@@ -15,4 +15,3 @@ RUN chmod g=u /etc/passwd
 COPY start /start
 RUN chmod a+x /start
 ENTRYPOINT [ "/start" ]
-
